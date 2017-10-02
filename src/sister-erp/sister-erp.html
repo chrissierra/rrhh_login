@@ -1,0 +1,32 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<dom-module id="sister-erp">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class SisterErp extends Polymer.Element {
+      static get is() { return 'sister-erp'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'sister-erp'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(SisterErp.is, SisterErp);
+  </script>
+</dom-module>
