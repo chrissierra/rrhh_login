@@ -26,6 +26,9 @@
     <link rel="import" href="./bower_components/app-layout/app-drawer/app-drawer.html">
     <link rel="import" href="./bower_components/app-layout/app-header-layout/app-header-layout.html">
 
+
+    <link rel="import" href="./bower_components/paper-listbox/paper-listbox.html">
+    <link rel="import" href="./bower_components/paper-menu-button/paper-menu-button.html">
     <link rel="import" href="./bower_components/neon-animation/web-animations.html">
     <link rel="import" href="./bower_components/neon-animation/animations/scale-up-animation.html">
     <link rel="import" href="./bower_components/neon-animation/animations/fade-out-animation.html">
@@ -60,7 +63,18 @@
               <!--   Content paper dialog   -->
               <paper-icon-button raised onclick="animated.open()" icon="touch-app"></paper-icon-button>
               <!--    Content paper dialog    -->
-              <paper-icon-button icon="more-vert"></paper-icon-button>
+
+
+              <paper-menu-button>
+                  <paper-icon-button icon="more-vert" slot="dropdown-trigger"></paper-icon-button>
+                  <paper-listbox slot="dropdown-content">
+                    <paper-item>Share</paper-item>
+                    <paper-item>Settings</paper-item>
+                    <paper-item>Help</paper-item>
+                  </paper-listbox>
+                </paper-menu-button>
+
+              
             </app-toolbar>
             <app-toolbar class="tall">
               <h1 main-title>SISTER ERP</h1>
