@@ -32,7 +32,46 @@
   <script>
   window.addEventListener("load", function(){
     document.getElementById("Video1").play();
+
+var boton_ingreso =document.getElementById("boton_ingreso");
+boton_ingreso.addEventListener("click", function(){
+  var usuario=document.getElementById("usuario").value;
+var rut =document.getElementById("rut").value;
+path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+alert(rut)
+  fetch(path, {
+            method: 'POST',
+            body: 'usuario='+usuario+'&rut='+rut+"&labor=get_query",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" }
+            }).then(function(response)  {
+            
+          return response.json();
+        })
+        .then(function(miBlob) {
+        
+          localStorage.setItem("nombre", miBlob.nombre);
+          localStorage.setItem("id", miBlob.id);
+          localStorage.setItem("apellido", miBlob.apellido);
+          localStorage.setItem("sueldo", miBlob.sueldo);
+          localStorage.setItem("cargo", miBlob.cargo);
+
+          localStorage.setItem("rut", miBlob.rut);
+          localStorage.setItem("isapre", miBlob.isapre);
+          localStorage.setItem("afp", miBlob.afp);
+          localStorage.setItem("horario", miBlob.horario);
+          localStorage.setItem("comuna_sucursal", miBlob.comuna_sucursal);
+          localStorage.setItem("direccion_sucursal", miBlob.direccion_sucursal);
+          
+location.href="./index.html";
+          
+        
+        });
+
+},false)
   }, false)
+
+
   </script>
 </body>
 </html>
