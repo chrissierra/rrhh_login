@@ -34,9 +34,50 @@ app-header {
           app-drawer-layout:not([narrow]) [drawer-toggle] {
             display: none;
           }
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
           body{
             font-family: 'Yanone Kaffeesatz', sans-serif;
             padding:0;
             margin:0;
          
            }
+           #contenedor{
+            align-content: space-around;
+            flex-direction: column;
+            display: flex;
+          align-items: center;
+          justify-content: center;
+          }
+          paper-card{
+            align-self: auto;
+            margin:15px;
+            min-width:80%;
+            max-width:80%;
+          
+          }
+          
+          .card-actions{
+            background-color: #efebeb;
+          }
+          
+       

@@ -1,0 +1,69 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-progress/paper-progress.html">
+<link rel="import" href="../../bower_components/paper-styles/default-theme.html">
+<link rel="import" href="../../bower_components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+<link rel="import" href="../../bower_components/app-layout/app-header/app-header.html">
+<link rel="import" href="../../bower_components/app-layout/app-toolbar/app-toolbar.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+<link rel="import" href="../../bower_components/app-layout/app-drawer/app-drawer.html">
+<link rel="import" href="../../bower_components/app-layout/app-header-layout/app-header-layout.html">
+
+<script src="../../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+<link rel = "import" href = "../../bower_components/paper-toast/paper-toast.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../../bower_components/paper-listbox/paper-listbox.html">
+<link rel="import" href="../../bower_components/paper-menu-button/paper-menu-button.html">
+
+<link rel="import" href="../../bower_components/neon-animation/animations/scale-up-animation.html">
+<link rel="import" href="../../bower_components/neon-animation/animations/fade-out-animation.html">
+<link rel="import" href="../../bower_components/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<dom-module id="marcaje-componente">
+        <template>
+               
+
+<!-- contenido -->
+<paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop>
+        <h2 id="disponiendo_fecha">Marca tu asistencia</h2>
+        <hr>
+        <paper-listbox>
+            <paper-item id="switch_entrada_item"><paper-toggle-button invalid id="switch_entrada">Entrada</paper-toggle-button></paper-item>
+            <paper-item id="switch_salida_item"><paper-toggle-button invalid id="switch_salida">Salida</paper-toggle-button></paper-item>
+            
+          </paper-listbox>
+
+
+
+          <div class="buttons">
+                <paper-button>Más Info...</paper-button>
+                <paper-button dialog-dismiss>Cancelar</paper-button>
+                <paper-button dialog-confirm autofocus>Listo</paper-button>
+              </div>
+      </paper-dialog>
+      <paper-toast id="toast_fuera_coordenada" text="Debes llegar a tu lugar de trabajo primero para marcar la entrada."></paper-toast>
+      <paper-toast id="toast" text="Aún no has marcado entrada. Marca primero la entrada."></paper-toast>
+<!-- contenido -->
+</template>
+               
+               
+               
+<script>
+
+  
+
+                class MarcajeComponent extends Polymer.Element {
+                static get is() {
+                return 'marcaje-componente';
+                }
+                }
+                customElements.define(MarcajeComponent.is, MarcajeComponent);
+</script>
+    </dom-module>

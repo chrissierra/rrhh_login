@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="./src/css/index_css.css">
     <title>sister_erp</title>
     <meta name="description" content="rrhh">
-
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl8fvOJNeQev8HvvT02caTJI6k8K75pPo&libraries=geometry"
+    async defer></script>
     <!-- See https://goo.gl/OOhYW5 -->
     <link rel="manifest" href="./manifest.json">
 
@@ -155,7 +156,7 @@
                   <paper-button dialog-confirm autofocus>Listo</paper-button>
                 </div>
         </paper-dialog>
-
+        <paper-toast id="toast_fuera_coordenada" text="Debes llegar a tu lugar de trabajo primero para marcar la entrada."></paper-toast>
         <paper-toast id="toast" text="Aún no has marcado entrada. Marca primero la entrada."></paper-toast>
 <style>
 #contenedor{
@@ -191,6 +192,8 @@ paper-card{
   </body>
   <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
   <script>
+
+   var global_distancia; 
   var nombre_trabajador=document.getElementById("nombre_trabajador");
   nombre_trabajador.innerText=localStorage.getItem("nombre");
 
@@ -210,7 +213,19 @@ switch_salida.addEventListener("click", marcando_salida, false);
 
 
 function marcando_entrada(){
-  path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+
+  switch_entrada.disabled=true;
+
+  navigator.geolocation.getCurrentPosition(success1, error)
+setTimeout(function() {
+ // alert(global_distancia)
+  if(global_distancia>100){
+    //toast no por qq estas muy lejs
+    switch_entrada.checked=false;
+    switch_entrada.disabled=false;
+          document.getElementById("toast_fuera_coordenada").open();
+  }else if(global_distancia<=0 && global_distancia<99){
+    path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
   fetch(path, {
             method: 'POST',
             body: 'id='+localStorage.getItem("id")+"&labor=marcar_asistencia&accion=entrada&rut="+localStorage.getItem("rut"),
@@ -223,13 +238,19 @@ function marcando_entrada(){
         .then(function(miBlob) {
 
 
-//alert(miBlob);
+alert(miBlob);
 if(miBlob=="Ejecución exitosa"){
   switch_entrada.disabled=true;
   ver_hora_movimiento("verificar_asistencia","switch_entrada_item", "switch_entrada", "Entrada a las ");
   //ver_hora_movimiento("verificar_asistencia");
 }
         });
+  }else{
+    switch_entrada.disabled=false;
+  }
+}, 300);
+
+
 
 }// fin funcion marcando entrada
 
@@ -239,9 +260,16 @@ if(miBlob=="Ejecución exitosa"){
 
 
 window.addEventListener("load", loading_page, false);
+
 function loading_page(){
 
-  obtener_locacion();
+
+  // navigator.geolocation.getCurrentPosition(success1, error)
+ // obtener_locacion();
+
+  setTimeout(function() {
+    //alert(global_distancia)
+  }, 400);
 
 
   path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
@@ -326,34 +354,49 @@ parte doned se verifica el inrgeso, se bloquea el input para marcarlo
 
 function marcando_salida(){
 
+  switch_salida.disabled=true;
 
+  navigator.geolocation.getCurrentPosition(success1, error)
+setTimeout(function() {
+ // alert(global_distancia)
+  if(global_distancia>100){
+    //toast no por qq estas muy lejs
+    switch_salida.checked=false;
+    switch_salida.disabled=false;
+          document.getElementById("toast_fuera_coordenada").open();
+  }else if(global_distancia<=0 && global_distancia<99){
+ 
 //alert("Adsf")
-  path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
-  fetch(path, {
-            method: 'POST',
-            body: 'id='+localStorage.getItem("id")+"&labor=nulo&accion=salida&rut="+localStorage.getItem("rut"),
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded" }
-            }).then(function(response)  {
-            
-          return response.text();
-        })
-        .then(function(miBlob) {
+path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+fetch(path, {
+          method: 'POST',
+          body: 'id='+localStorage.getItem("id")+"&labor=nulo&accion=salida&rut="+localStorage.getItem("rut"),
+          headers: {
+              "Content-Type": "application/x-www-form-urlencoded" }
+          }).then(function(response)  {
+          
+        return response.text();
+      })
+      .then(function(miBlob) {
 
 //alert(miBlob);
-          if(miBlob=="Ejecución exitosa"){
-           switch_salida.disabled=true;
-           document.getElementById("switch_salida_item").disabled=true;
+        if(miBlob=="Ejecución exitosa"){
+         switch_salida.disabled=true;
+         document.getElementById("switch_salida_item").disabled=true;
 ver_hora_movimiento("verificar_salida","switch_salida_item", "switch_salida", "Salida a las ");
 //ver_hora_movimiento(variable_en_query, id_item, id_switch, texto)
-          switch_salida.innerHTML="Salida realizada a las 15:50";
-          }else if(miBlob=="false"){
-            switch_salida.checked=false;
-          document.getElementById("toast").open();
-          }
+        switch_salida.innerHTML="Salida realizada a las 15:50";
+        }else if(miBlob=="false"){
+          switch_salida.checked=false;
+        document.getElementById("toast").open();
+        switch_salida.disabled=false;
+        }
 
-        });
-
+      });
+  }else{
+    switch_salida.disabled=false;
+  }
+}, 300);
 
 
 } // fin funcion marcando salida
@@ -429,16 +472,31 @@ function getLocation() {
   navigator.geolocation.getCurrentPosition(
             function(position) {
                 var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-                var latLngB = new google.maps.LatLng(40.778721618334295, -73.96648406982422);
+                var latLngB = new google.maps.LatLng(localStorage.getItem("latitud"), localStorage.getItem("longitud"));
                 var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
-                alert(distance);//In metres
+              //alert(distance);//In metres
+                
             },
             function() {
                 alert("geolocation not supported!!");
             }
     );
+    
 }
 
+function success1(position) {
+  var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  var latLngB = new google.maps.LatLng(localStorage.getItem("latitud"), localStorage.getItem("longitud"));
+  var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
+//alert(distance);//In metres
+global_distancia=distance;
+ 
+}
+
+
+function error(position) {
+alert("no soporta gps")
+}
 
 
 

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="./src/css/index_css.css">
+    <title>sister_erp</title>
+    <meta name="description" content="rrhh">
+    <link rel="import" href="./src/modulos/header.html">
+    <link rel="import" href="./src/modulos/marcaje.html">
+    <link rel="import" href="./bower_components/polymer/polymer-element.html">
+  </head>
+  <body unresolved>
+    
+    <app-drawer-layout>
+        <app-drawer swipe-open slot="drawer" >
+          <div  style="height: 100%; overflow: auto;background-color:#f5f5f5">
+          <app-toolbar class="navToolbar" ><h2>Menú</h2>    </app-toolbar> 
+<!--   Content lateral   -->
+<div role="listbox" >
+    <paper-item><a href="./liquidaciones.html" style="text-decoration:none; color:black">Liquidaciones</a> </paper-item>
+    <paper-item><a href="./contrato.html" style="text-decoration:none;color:black">Contrato</a></paper-item>
+    <paper-item><a href="./asistencia.html" style="text-decoration:none;color:black">Asistencia</a></paper-item>
+  </div>
+ </div>
+<!--   Content lateral   -->
+        </app-drawer>
+
+
+        <app-header-layout>
+          <app-header class="mainHeader" condenses fixed effects="resize-title blend-background waterfall" slot="header">
+            <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
+              <h5 condensed-title>SISTER ERP <i>&nbsp; Sesión empleados</i></h5>
+              <!--   Content paper dialog   -->
+              <paper-icon-button raised onclick="animated.open()" icon="touch-app"></paper-icon-button>
+              <!--    Content paper dialog    -->
+
+
+              <paper-menu-button vertical-align="top" horizontal-align="right"   >
+                  <paper-icon-button icon="more-vert" slot="dropdown-trigger" alt="bottom align" ></paper-icon-button>
+                  <paper-listbox slot="dropdown-content">
+                    <paper-item id="nombre_trabajador">hola</paper-item>
+                    <paper-item id="configuracion">Configuración</paper-item>
+                    <paper-item id="ayuda">Ayuda</paper-item>
+                  </paper-listbox>
+                </paper-menu-button>
+
+              
+            </app-toolbar>
+            <app-toolbar class="tall">
+              <h1 main-title>SISTER ERP</h1>
+            </app-toolbar>
+          </app-header>
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <!--   Content page   -->
+ <div class="container" id="contenedor">
+
+ <paper-card heading="Liquidaciones" alt="Emmental">
+  <div class="card-content">
+    Desde tu perfil podrás visualizar y descargar todas tus liquidaciones de sueldo. 
+    Presiona en descargar para obtener tu última liquidación de sueldo. 
+    Si presionas en liquidaciones! podrás explorar todas tus liquidaciones.
+
+  </div>
+  <div class="card-actions">
+    <paper-button>Descargar</paper-button>
+    <paper-button>Liquidaciones!</paper-button>
+  </div>
+</paper-card>
+
+<paper-card heading="Contrato" alt="Emmental">
+    <div class="card-content">
+      Podrás visualizar tu contrato y tus anexos si así lo deseas.
+    </div>
+    <div class="card-actions">
+      <paper-button>Ir</paper-button>
+      
+    </div>
+  </paper-card>
+
+  <paper-card heading="Marcaje" alt="Emmental">
+      <div class="card-content">
+        Podrás marcar entrada y salida en tu lugar de trabajo desde tu celular. 
+      </div>
+      <div class="card-actions">
+        <paper-button>Marcar</paper-button>
+        <paper-button>Visualizar asistencia</paper-button>
+      </div>
+    </paper-card>
+
+    <paper-card heading="Consultas" alt="Emmental">
+        <div class="card-content">
+          Tienes habilitado un chat con un especialista en recursos humanos que te orientará en todas tus inquietudes.
+        </div>
+        <div class="card-actions">
+          <paper-button>Chatear</paper-button>
+          
+        </div>
+      </paper-card>
+<!--   Content page   -->
+<!--   Content page   -->
+<!--   Content page   -->
+<!--   Content page   -->
+<!--   Content page   -->
+<!--   Content page   -->
+<!--   Content page   -->
+</div>
+
+ <!--   Content page   -->
+        </app-header-layout>
+      </app-drawer-layout>
+
+
+
+
+
+
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+  <marcaje-componente></marcaje-componente>  
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+<!-- MARCAJE -->
+  </body>
+  
+<script src="./src/js/index.js"></script>
+  <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+</html>
