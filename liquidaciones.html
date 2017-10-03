@@ -111,4 +111,37 @@ paper-card{
 </style>
   </body>
   <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+
+  
+  <script>
+  window.addEventListener("load", function(){
+obtener_locacion();
+  },false)
+
+  function obtener_locacion(){
+  var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+
+ alert('Your current position is:');
+alert(`Latitude : ${crd.latitude}`);
+ alert(`Longitude: ${crd.longitude}`);
+  alert(`More or less ${crd.accuracy} meters.`);
+};
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+
+  </script>
 </html>
