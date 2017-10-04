@@ -61,6 +61,7 @@ app-header {
             margin:0;
          
            }
+           /*
            #contenedor{
             align-content: space-around;
             flex-direction: column;
@@ -75,7 +76,7 @@ app-header {
             max-width:80%;
           
           }
-          
+          */
           .card-actions{
             background-color: #efebeb;
           }

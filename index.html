@@ -83,7 +83,7 @@
             </app-toolbar>
           </app-header>
  <!--   Content page   -->
- <div class="container" id="contenedor">
+ <div class="containerz" id="contenedor">
 
  <paper-card heading="Liquidaciones" alt="Emmental">
   <div class="card-content">
@@ -100,14 +100,19 @@
 
 <paper-card heading="Contrato" alt="Emmental">
     <div class="card-content">
-      Podrás visualizar tu contrato y tus anexos si así lo deseas.
+      Desde tu perfil podrás visualizar y descargar todas tus liquidaciones de sueldo. 
+      Presiona en descargar para obtener tu última liquidación de sueldo. 
+      Si presionas en liquidaciones! podrás explorar todas tus liquidaciones.
+  
     </div>
     <div class="card-actions">
-      <paper-button>Ir</paper-button>
-      
+      <!--<paper-button>Descargar</paper-button>-->
+      <paper-button>Liquidaciones!</paper-button>
     </div>
   </paper-card>
+</div> 
 
+<div class="containerz" id="contenedor">
   <paper-card heading="Marcaje" alt="Emmental">
       <div class="card-content">
         Podrás marcar entrada y salida en tu lugar de trabajo desde tu celular. 
@@ -158,24 +163,26 @@
         <paper-toast id="toast_fuera_coordenada" text="Debes llegar a tu lugar de trabajo primero para marcar la entrada."></paper-toast>
         <paper-toast id="toast" text="Aún no has marcado entrada. Marca primero la entrada."></paper-toast>
 <style>
-#contenedor{
-  align-content: space-around;
-  flex-direction: column;
-  display: flex;
-align-items: center;
-justify-content: center;
+.containerz{
+flex-wrap: wrap;
+ display:flex;
+ flex-direction: row;
+ 
+ 
 }
+
 paper-card{
-  align-self: auto;
-  margin:15px;
-  min-width:80%;
-  max-width:80%;
-
-}
-
+            align-self: auto;
+            margin:15px;
+           min-width: 98%;
+          
+          }
 .card-actions{
   background-color: #efebeb;
+ 
 }
+
+
 
 
 
