@@ -1,0 +1,501 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="./src/css/index_css.css">
+    <title>sister_erp</title>
+    <meta name="description" content="rrhh">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl8fvOJNeQev8HvvT02caTJI6k8K75pPo&amp;libraries=geometry" async="" defer=""></script>
+    <!-- See https://goo.gl/OOhYW5 -->
+    <link rel="manifest" href="./manifest.json">
+
+
+    <link rel="import" href="./bower_components/iron-flex-layout/iron-flex-layout.html">
+    <link rel="import" href="./bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="./bower_components/paper-progress/paper-progress.html">
+    <link rel="import" href="./bower_components/paper-styles/default-theme.html">
+    <link rel="import" href="./bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="./bower_components/paper-button/paper-button.html">
+    <link rel="import" href="./bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+    <link rel="import" href="./bower_components/app-layout/app-header/app-header.html">
+    <link rel="import" href="./bower_components/app-layout/app-toolbar/app-toolbar.html">
+    <link rel="import" href="./bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
+    <link rel="import" href="./bower_components/app-layout/app-drawer/app-drawer.html">
+    <link rel="import" href="./bower_components/app-layout/app-header-layout/app-header-layout.html">
+
+
+    <link rel="import" href="./bower_components/paper-toast/paper-toast.html">
+    <link rel="import" href="./bower_components/paper-toggle-button/paper-toggle-button.html">
+    <link rel="import" href="./bower_components/paper-listbox/paper-listbox.html">
+    <link rel="import" href="./bower_components/paper-menu-button/paper-menu-button.html">
+    <link rel="import" href="./bower_components/neon-animation/web-animations.html">
+    <link rel="import" href="./bower_components/neon-animation/animations/scale-up-animation.html">
+    <link rel="import" href="./bower_components/neon-animation/animations/fade-out-animation.html">
+    <link rel="import" href="./bower_components/paper-dialog/paper-dialog.html">
+    <link rel="import" href="./bower_components/paper-card/paper-card.html">
+    <link rel="import" href="./bower_components/paper-item/paper-item.html">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+  
+  </head>
+  <body unresolved="">
+    
+    <app-drawer-layout>
+        <app-drawer swipe-open="" slot="drawer">
+          <div style="height: 100%; overflow: auto;background-color:#f5f5f5">
+          <app-toolbar class="navToolbar"><h2>Menú</h2>    </app-toolbar> 
+<!--   Content lateral   -->
+<div role="listbox">
+    <paper-item><a href="./liquidaciones.html" style="text-decoration:none; color:black">Liquidaciones</a> </paper-item>
+    <paper-item><a href="./contrato.html" style="text-decoration:none;color:black">Contrato</a></paper-item>
+    <paper-item><a href="./asistencia.html" style="text-decoration:none;color:black">Asistencia</a></paper-item>
+  </div>
+ </div>
+<!--   Content lateral   -->
+        </app-drawer>
+
+
+        <app-header-layout>
+          <app-header class="mainHeader" condenses="" fixed="" effects="resize-title blend-background waterfall" slot="header">
+            <app-toolbar>
+              <paper-icon-button icon="menu" drawer-toggle=""></paper-icon-button>
+              <h5 condensed-title="">SISTER ERP <i>&nbsp; Sesión empleados</i></h5>
+              <!--   Content paper dialog   -->
+              <paper-icon-button raised="" onclick="animated.open()" icon="touch-app"></paper-icon-button>
+              <!--    Content paper dialog    -->
+
+
+              <paper-menu-button vertical-align="top" horizontal-align="right">
+                  <paper-icon-button icon="more-vert" slot="dropdown-trigger" alt="bottom align"></paper-icon-button>
+                  <paper-listbox slot="dropdown-content">
+                    <paper-item id="nombre_trabajador">hola</paper-item>
+                    <paper-item id="configuracion">Configuración</paper-item>
+                    <paper-item id="ayuda">Ayuda</paper-item>
+                  </paper-listbox>
+                </paper-menu-button>
+
+              
+            </app-toolbar>
+            <app-toolbar class="tall">
+              <h1 main-title="">SISTER ERP</h1>
+            </app-toolbar>
+          </app-header>
+ <!--   Content page   -->
+ <div class="container" id="contenedor">
+
+ <paper-card heading="Liquidaciones" alt="Emmental">
+  <div class="card-content">
+    Desde tu perfil podrás visualizar y descargar todas tus liquidaciones de sueldo. 
+    Presiona en descargar para obtener tu última liquidación de sueldo. 
+    Si presionas en liquidaciones! podrás explorar todas tus liquidaciones.
+
+  </div>
+  <div class="card-actions">
+    <paper-button>Descargar</paper-button>
+    <paper-button>Liquidaciones!</paper-button>
+  </div>
+</paper-card>
+
+<paper-card heading="Contrato" alt="Emmental">
+    <div class="card-content">
+      Podrás visualizar tu contrato y tus anexos si así lo deseas.
+    </div>
+    <div class="card-actions">
+      <paper-button>Ir</paper-button>
+      
+    </div>
+  </paper-card>
+
+  <paper-card heading="Marcaje" alt="Emmental">
+      <div class="card-content">
+        Podrás marcar entrada y salida en tu lugar de trabajo desde tu celular. 
+      </div>
+      <div class="card-actions">
+        <paper-button>Marcar</paper-button>
+        <paper-button>Visualizar asistencia</paper-button>
+      </div>
+    </paper-card>
+
+    <paper-card heading="Consultas" alt="Emmental">
+        <div class="card-content">
+          Tienes habilitado un chat con un especialista en recursos humanos que te orientará en todas tus inquietudes.
+        </div>
+        <div class="card-actions">
+          <paper-button>Chatear</paper-button>
+          
+        </div>
+      </paper-card>
+
+
+</div>
+
+ <!--   Content page   -->
+        </app-header-layout>
+      </app-drawer-layout>
+
+
+
+
+      <paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop="">
+          <h2 id="disponiendo_fecha">Marca tu asistencia</h2>
+          <hr>
+          <paper-listbox>
+              <paper-item id="switch_entrada_item"><paper-toggle-button invalid="" id="switch_entrada">Entrada</paper-toggle-button></paper-item>
+              <paper-item id="switch_salida_item"><paper-toggle-button invalid="" id="switch_salida">Salida</paper-toggle-button></paper-item>
+              
+            </paper-listbox>
+
+
+
+            <div class="buttons">
+                  <paper-button>Más Info...</paper-button>
+                  <paper-button dialog-dismiss="">Cancelar</paper-button>
+                  <paper-button dialog-confirm="" autofocus="">Listo</paper-button>
+                </div>
+        </paper-dialog>
+        <paper-toast id="toast_fuera_coordenada" text="Debes llegar a tu lugar de trabajo primero para marcar la entrada."></paper-toast>
+        <paper-toast id="toast" text="Aún no has marcado entrada. Marca primero la entrada."></paper-toast>
+<style>
+#contenedor{
+  align-content: space-around;
+  flex-direction: column;
+  display: flex;
+align-items: center;
+justify-content: center;
+}
+paper-card{
+  align-self: auto;
+  margin:15px;
+  min-width:80%;
+  max-width:80%;
+
+}
+
+.card-actions{
+  background-color: #efebeb;
+}
+
+
+
+
+/*
+@media screen and (min-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+*/
+</style>
+  
+  <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <script>
+
+   var global_distancia; 
+  var nombre_trabajador=document.getElementById("nombre_trabajador");
+  nombre_trabajador.innerText=localStorage.getItem("nombre");
+
+  var fecha= new Date();
+  var dia_de_la_fecha= fecha.getDate() + "/" + (1+fecha.getMonth())+ "/"+fecha.getFullYear();
+  var disponiendo_fecha= document.getElementById("disponiendo_fecha");
+  disponiendo_fecha.innerHTML="Marcaje al "+dia_de_la_fecha;
+
+ 
+var switch_entrada=document.getElementById("switch_entrada");
+switch_entrada.addEventListener("click", marcando_entrada, false);
+var switch_salida=document.getElementById("switch_salida");
+switch_salida.addEventListener("click", marcando_salida, false);
+
+
+
+
+
+function marcando_entrada(){
+
+  switch_entrada.disabled=true;
+
+  navigator.geolocation.getCurrentPosition(success1, error)
+setTimeout(function() {
+ // alert(global_distancia)
+  if(global_distancia>100){
+    //toast no por qq estas muy lejs
+    switch_entrada.checked=false;
+    switch_entrada.disabled=false;
+          document.getElementById("toast_fuera_coordenada").open();
+  }else if(global_distancia<=0 && global_distancia<99){
+    path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+  fetch(path, {
+            method: 'POST',
+            body: 'id='+localStorage.getItem("id")+"&labor=marcar_asistencia&accion=entrada&rut="+localStorage.getItem("rut"),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" }
+            }).then(function(response)  {
+            
+          return response.text();
+        })
+        .then(function(miBlob) {
+
+
+alert(miBlob);
+if(miBlob=="Ejecución exitosa"){
+  switch_entrada.disabled=true;
+  ver_hora_movimiento("verificar_asistencia","switch_entrada_item", "switch_entrada", "Entrada a las ");
+  //ver_hora_movimiento("verificar_asistencia");
+}
+        });
+  }else{
+    switch_entrada.disabled=false;
+  }
+}, 300);
+
+
+
+}// fin funcion marcando entrada
+
+
+
+
+
+
+window.addEventListener("load", loading_page, false);
+
+function loading_page(){
+
+
+  // navigator.geolocation.getCurrentPosition(success1, error)
+ // obtener_locacion();
+
+  setTimeout(function() {
+    //alert(global_distancia)
+  }, 400);
+
+
+  path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+  fetch(path, {
+            method: 'POST',
+            body: 'id='+localStorage.getItem("id")+"&accion=nada&labor=verificar_asistencia&rut="+localStorage.getItem("rut"),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" }
+            }).then(function(response)  {
+            
+          return response.json();
+        })
+        .then(function(miBlob) {
+
+
+if(miBlob.booleano=="true"){
+  /*
+parte doned se verifica el inrgeso, se bloquea el input para marcarlo
+  */
+  switch_entrada.disabled=true;
+  document.getElementById("switch_entrada_item").disabled=true;
+  switch_entrada.innerHTML="Entrada realizada a las "+ miBlob.hora_ingreso;
+  switch_entrada.checked=true;
+  switch_entrada.invalid=false;
+
+}else{
+  // si es que aun no ha ingresado....1
+//  alert("asdf")
+}
+
+        });
+
+
+/*
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+*/
+fetch(path, {
+            method: 'POST',
+            body: 'id='+localStorage.getItem("id")+"&accion=nada&labor=verificar_salida&rut="+localStorage.getItem("rut"),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" }
+            }).then(function(response)  {
+            
+          return response.json();
+        })
+        .then(function(miBlob) {
+
+
+if(miBlob.booleano=="true"){
+  /*
+parte doned se verifica el inrgeso, se bloquea el input para marcarlo
+  */
+  switch_salida.disabled=true;
+  document.getElementById("switch_salida_item").disabled=true;
+  switch_salida.innerHTML="Salida realizada a las "+ miBlob.hora_ingreso;
+  switch_salida.checked=true;
+  switch_salida.invalid=false;
+
+}else{
+
+   
+//  switch_salida.checked=true;
+  // si es que aun no ha SALIDO....1
+ // alert("asdf")
+}
+
+        });
+
+}
+
+
+
+
+
+
+
+
+
+
+
+function marcando_salida(){
+
+  switch_salida.disabled=true;
+
+  navigator.geolocation.getCurrentPosition(success1, error)
+setTimeout(function() {
+ // alert(global_distancia)
+  if(global_distancia>100){
+    //toast no por qq estas muy lejs
+    switch_salida.checked=false;
+    switch_salida.disabled=false;
+          document.getElementById("toast_fuera_coordenada").open();
+  }else if(global_distancia<=0 && global_distancia<99){
+ 
+//alert("Adsf")
+path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+fetch(path, {
+          method: 'POST',
+          body: 'id='+localStorage.getItem("id")+"&labor=nulo&accion=salida&rut="+localStorage.getItem("rut"),
+          headers: {
+              "Content-Type": "application/x-www-form-urlencoded" }
+          }).then(function(response)  {
+          
+        return response.text();
+      })
+      .then(function(miBlob) {
+
+//alert(miBlob);
+        if(miBlob=="Ejecución exitosa"){
+         switch_salida.disabled=true;
+         document.getElementById("switch_salida_item").disabled=true;
+ver_hora_movimiento("verificar_salida","switch_salida_item", "switch_salida", "Salida a las ");
+//ver_hora_movimiento(variable_en_query, id_item, id_switch, texto)
+        switch_salida.innerHTML="Salida realizada a las 15:50";
+        }else if(miBlob=="false"){
+          switch_salida.checked=false;
+        document.getElementById("toast").open();
+        switch_salida.disabled=false;
+        }
+
+      });
+  }else{
+    switch_salida.disabled=false;
+  }
+}, 300);
+
+
+} // fin funcion marcando salida
+
+
+
+
+
+function ver_hora_movimiento(variable_en_query, id_item, id_switch, texto){
+  fetch(path, {
+            method: 'POST',
+            body: 'id='+localStorage.getItem("id")+"&accion=nada&labor="+variable_en_query+"&rut="+localStorage.getItem("rut"),
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded" }
+            }).then(function(response)  {
+            
+          return response.json();
+        })
+        .then(function(miBlob) {
+
+
+if(miBlob.booleano=="true"){
+  /*
+parte doned se verifica el inrgeso, se bloquea el input para marcarlo
+  */
+  document.getElementById(id_switch).disabled=true;
+  document.getElementById(id_item).disabled=true;
+  document.getElementById(id_switch).innerHTML=texto+ miBlob.hora_ingreso;
+  document.getElementById(id_switch).checked=true;
+  document.getElementById(id_switch).invalid=false;
+
+}else{
+
+   
+//  switch_salida.checked=true;
+  // si es que aun no ha SALIDO....1
+ // alert("asdf")
+}
+
+        });
+}
+
+
+
+function obtener_locacion(){
+  var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
+
+function success(pos) {
+  var crd = pos.coords;
+
+ alert('Your current position is:');
+alert(`Latitude : ${crd.latitude}`);
+ alert(`Longitude: ${crd.longitude}`);
+  alert(`More or less ${crd.accuracy} meters.`);
+};
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+};
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+}
+
+
+
+
+
+function getLocation() {
+  navigator.geolocation.getCurrentPosition(
+            function(position) {
+                var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                var latLngB = new google.maps.LatLng(localStorage.getItem("latitud"), localStorage.getItem("longitud"));
+                var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
+              //alert(distance);//In metres
+                
+            },
+            function() {
+                alert("geolocation not supported!!");
+            }
+    );
+    
+}
+
+function success1(position) {
+  var latLngA = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+  var latLngB = new google.maps.LatLng(localStorage.getItem("latitud"), localStorage.getItem("longitud"));
+  var distance = google.maps.geometry.spherical.computeDistanceBetween(latLngA, latLngB);
+//alert(distance);//In metres
+global_distancia=distance;
+ 
+}
+
+
+function error(position) {
+alert("no soporta gps")
+}
+
+
+
+  </script>
+
+</body></html>

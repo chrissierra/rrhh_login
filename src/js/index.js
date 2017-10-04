@@ -21,7 +21,14 @@ function marcando_entrada(){
 
 switch_entrada.disabled=true;
 
-navigator.geolocation.getCurrentPosition(success1, error)
+calibrando_gps();
+
+
+navigator.geolocation.getCurrentPosition(success1, error, {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+  })
 setTimeout(function() {
 // alert(global_distancia)
 if(global_distancia>100){
@@ -68,7 +75,7 @@ window.addEventListener("load", loading_page, false);
 
 function loading_page(){
 
-
+calibrando_gps();
 // navigator.geolocation.getCurrentPosition(success1, error)
 // obtener_locacion();
 
@@ -158,10 +165,14 @@ switch_salida.invalid=false;
 
 
 function marcando_salida(){
-
+calibrando_gps();
 switch_salida.disabled=true;
 
-navigator.geolocation.getCurrentPosition(success1, error)
+navigator.geolocation.getCurrentPosition(success1, error,{
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+  })
 setTimeout(function() {
 // alert(global_distancia)
 if(global_distancia>100){
@@ -303,3 +314,12 @@ function error(position) {
 alert("no soporta gps")
 }
 
+function calibrando_gps(){
+  for (var index = 0; index < 15; index++) {
+    navigator.geolocation.getCurrentPosition(function(pos){console.log(pos.coords)}, function(){console.log("error")}, {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+      })
+  }
+}

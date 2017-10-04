@@ -1,0 +1,83 @@
+app-header {
+            
+            background-color: #150769;
+            color: white;
+  
+            --app-header-background-front-layer: {
+              background-color: #4285f4;
+            };
+          }
+  
+          app-header paper-icon-button {
+            --paper-icon-button-ink-color: white;
+          }
+  
+          .mainHeader [main-title] {
+            font-weight: 400;
+            margin: 0 0 0 50px;
+          }
+  
+          .mainHeader [condensed-title] {
+            font-weight: 400;
+            margin-left: 30px;
+          }
+  
+          .mainHeader [condensed-title] i {
+            font-style: normal;
+            font-weight: 100;
+          }
+  
+          app-toolbar.tall {
+            height: 148px;
+          }
+  
+          app-drawer-layout:not([narrow]) [drawer-toggle] {
+            display: none;
+          }
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          body{
+            font-family: 'Yanone Kaffeesatz', sans-serif;
+            padding:0;
+            margin:0;
+         
+           }
+           #contenedor{
+            align-content: space-around;
+            flex-direction: column;
+            display: flex;
+          align-items: center;
+          justify-content: center;
+          }
+          paper-card{
+            align-self: auto;
+            margin:15px;
+            min-width:80%;
+            max-width:80%;
+          
+          }
+          
+          .card-actions{
+            background-color: #efebeb;
+          }
+          
+       

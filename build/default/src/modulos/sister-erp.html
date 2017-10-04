@@ -1,0 +1,51 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+    
+    <dom-module id="sister-erp">
+      <template>
+        <style>
+        
+        </style>
+        <!-- contenido -->
+<paper-dialog id="animated" entry-animation="scale-up-animation" exit-animation="fade-out-animation" with-backdrop="">
+                <h2 id="disponiendo_fecha">Marca tu asistencia</h2>
+                <hr>
+                <paper-listbox>
+                    <paper-item id="switch_entrada_item"><paper-toggle-button invalid="" id="switch_entrada">Entrada</paper-toggle-button></paper-item>
+                    <paper-item id="switch_salida_item"><paper-toggle-button invalid="" id="switch_salida">Salida</paper-toggle-button></paper-item>
+                    
+                  </paper-listbox>
+        
+        
+        
+                  <div class="buttons">
+                        <paper-button>Más Info...</paper-button>
+                        <paper-button dialog-dismiss="">Cancelar</paper-button>
+                        <paper-button dialog-confirm="" autofocus="">Listo</paper-button>
+                      </div>
+              </paper-dialog>
+              <paper-toast id="toast_fuera_coordenada" text="Debes llegar a tu lugar de trabajo primero para marcar la entrada."></paper-toast>
+              <paper-toast id="toast" text="Aún no has marcado entrada. Marca primero la entrada."></paper-toast>
+        <!-- contenido -->
+      </template>
+    
+      <script>
+        /**
+         * @customElement
+         * @polymer
+         */
+        class SisterErp extends Polymer.Element {
+          static get is() { return 'sister-erp'; }
+          static get properties() {
+            return {
+              prop1: {
+                type: String,
+                value: 'sister-erp'
+              }
+            };
+          }
+        }
+    
+        window.customElements.define(SisterErp.is, SisterErp);
+      </script>
+    </dom-module>
+    

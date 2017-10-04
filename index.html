@@ -6,13 +6,12 @@
     <link rel="stylesheet" href="./src/css/index_css.css">
     <title>sister_erp</title>
     <meta name="description" content="rrhh">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl8fvOJNeQev8HvvT02caTJI6k8K75pPo&libraries=geometry"
-    async defer></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl8fvOJNeQev8HvvT02caTJI6k8K75pPo&libraries=geometry"
+    async defer></script>-->
     <!-- See https://goo.gl/OOhYW5 -->
     <link rel="manifest" href="./manifest.json">
-
-    <link rel="import" href="./bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="./bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="./src/modulos/header.html">
+<!--
     <link rel="import" href="./bower_components/iron-flex-layout/iron-flex-layout.html">
     <link rel="import" href="./bower_components/iron-icons/iron-icons.html">
     <link rel="import" href="./bower_components/paper-icon-button/paper-icon-button.html">
@@ -39,7 +38,7 @@
     <link rel="import" href="./bower_components/paper-card/paper-card.html">
     <link rel="import" href="./bower_components/paper-item/paper-item.html">
     <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
-  
+-->
   </head>
   <body unresolved>
     
@@ -191,8 +190,9 @@ paper-card{
 </style>
   </body>
   <script src="./bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="./src/js/index.js"></script>
   <script>
-
+/*
    var global_distancia; 
   var nombre_trabajador=document.getElementById("nombre_trabajador");
   nombre_trabajador.innerText=localStorage.getItem("nombre");
@@ -289,6 +289,7 @@ if(miBlob.booleano=="true"){
   /*
 parte doned se verifica el inrgeso, se bloquea el input para marcarlo
   */
+  /*
   switch_entrada.disabled=true;
   document.getElementById("switch_entrada_item").disabled=true;
   switch_entrada.innerHTML="Entrada realizada a las "+ miBlob.hora_ingreso;
@@ -308,6 +309,8 @@ parte doned se verifica el inrgeso, se bloquea el input para marcarlo
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 */
+
+/*
 fetch(path, {
             method: 'POST',
             body: 'id='+localStorage.getItem("id")+"&accion=nada&labor=verificar_salida&rut="+localStorage.getItem("rut"),
@@ -323,7 +326,7 @@ fetch(path, {
 if(miBlob.booleano=="true"){
   /*
 parte doned se verifica el inrgeso, se bloquea el input para marcarlo
-  */
+  *//*
   switch_salida.disabled=true;
   document.getElementById("switch_salida_item").disabled=true;
   switch_salida.innerHTML="Salida realizada a las "+ miBlob.hora_ingreso;
@@ -421,7 +424,7 @@ function ver_hora_movimiento(variable_en_query, id_item, id_switch, texto){
 if(miBlob.booleano=="true"){
   /*
 parte doned se verifica el inrgeso, se bloquea el input para marcarlo
-  */
+  *//*
   document.getElementById(id_switch).disabled=true;
   document.getElementById(id_item).disabled=true;
   document.getElementById(id_switch).innerHTML=texto+ miBlob.hora_ingreso;
@@ -496,9 +499,9 @@ global_distancia=distance;
 
 function error(position) {
 alert("no soporta gps")
-}
+}f
 
-
+*/
 
   </script>
 </html>
