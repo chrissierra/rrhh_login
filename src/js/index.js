@@ -84,7 +84,7 @@ setTimeout(function() {
 }, 400);
 
 
-path="https://coseismal-hamster-7732.dataplicity.io/rrhh/nuevo/rrhh/production/model/vista_empleados/vista_empleados_sister.php";
+path="hhttps://coseismal-hamster-7732.dataplicity.io/rrhh/production/model/vista_empleados/vista_empleados_sister.php";
 fetch(path, {
           method: 'POST',
           body: 'id='+localStorage.getItem("id")+"&accion=nada&labor=verificar_asistencia&rut="+localStorage.getItem("rut"),
