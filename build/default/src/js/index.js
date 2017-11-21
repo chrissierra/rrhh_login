@@ -30,7 +30,7 @@ if(global_distancia>100){
   switch_entrada.disabled=false;
         document.getElementById("toast_fuera_coordenada").open();
 }else if(global_distancia<=0 && global_distancia<99){
-  path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+  path="http://christophersierrame.ddns.net/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
 fetch(path, {
           method: 'POST',
           body: 'id='+localStorage.getItem("id")+"&labor=marcar_asistencia&accion=entrada&rut="+localStorage.getItem("rut"),
@@ -77,7 +77,7 @@ setTimeout(function() {
 }, 400);
 
 
-path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+path="http://christophersierrame.ddns.net/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
 fetch(path, {
           method: 'POST',
           body: 'id='+localStorage.getItem("id")+"&accion=nada&labor=verificar_asistencia&rut="+localStorage.getItem("rut"),
@@ -172,7 +172,7 @@ if(global_distancia>100){
 }else if(global_distancia<=0 && global_distancia<99){
 
 //alert("Adsf")
-path="http://localhost/Proyectos/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
+path="http://christophersierrame.ddns.net/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
 fetch(path, {
         method: 'POST',
         body: 'id='+localStorage.getItem("id")+"&labor=nulo&accion=salida&rut="+localStorage.getItem("rut"),

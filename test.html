@@ -37,7 +37,7 @@ var boton_ingreso =document.getElementById("boton_ingreso");
 boton_ingreso.addEventListener("click", function(){
   var usuario=document.getElementById("usuario").value;
 var rut =document.getElementById("rut").value;
-path="https://coseismal-hamster-7732.dataplicity.io/rrhh/production/model/vista_empleados/vista_empleados_sister.php";
+path="https://unwieldy-labradoodle-8398.dataplicity.io/jaja/bower_components/gentelella/production/model/vista_empleados/vista_empleados_sister.php";
 alert(rut)
   fetch(path, {
             method: 'POST',
@@ -49,7 +49,7 @@ alert(rut)
           return response.json();
         })
         .then(function(miBlob) {
-        
+     
           localStorage.setItem("nombre", miBlob.nombre);
           localStorage.setItem("id", miBlob.id);
           localStorage.setItem("apellido", miBlob.apellido);
@@ -63,10 +63,11 @@ alert(rut)
           localStorage.setItem("comuna_sucursal", miBlob.comuna_sucursal);
           localStorage.setItem("direccion_sucursal", miBlob.direccion_sucursal);
 
-
+          localStorage.setItem("nombre_empresa_usuario_plataforma",miBlob.nombre_empresa_usuario_plataforma);
           localStorage.setItem("latitud", miBlob.latitud);
           localStorage.setItem("longitud", miBlob.longitud);
-
+          alert(miBlob.nombre_empresa_usuario_plataforma);
+          alert(miBlob.nombre);
           alert(miBlob.latitud);
 location.href="./index.html";
           
